@@ -1,0 +1,11 @@
+SpriteRenderer spriteRenderer = null;   // set your value
+Camera camera = null;                   // set your value
+
+float screenAspect = (float)Screen.width / (float)Screen.height;
+float cameraHeight = camera.orthographicSize * 2;
+
+Bounds camBounds = new Bounds(camera.transform.position, new Vector3(cameraHeight * screenAspect, cameraHeight, 0));
+
+float gab = camBounds.extents.x / spriteRenderer.bounds.extents.x;
+
+spriteRenderer.transform.localScale = Vector3.one * gab;
